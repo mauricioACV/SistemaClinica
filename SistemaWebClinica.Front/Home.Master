@@ -9,7 +9,7 @@
     <title>Sistema Clínico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1, user-scalable=no" />
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.css"/>
     <!-- Ionicons -->
     <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />

@@ -89,7 +89,7 @@
         </div>
 
         <br />
-        <!-- Datatable Part -->
+        <!-- Datatable -->
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-primary">
@@ -109,7 +109,7 @@
                                     <th>Nro Documento</th>
                                     <th>Dirección</th>
                                     <th>Teléfono</th>
-                                    <th>Estado</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody id="tbl_body_table">
