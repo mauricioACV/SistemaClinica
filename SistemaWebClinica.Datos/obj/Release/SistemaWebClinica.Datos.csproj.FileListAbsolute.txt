@@ -1,0 +1,9 @@
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\bin\Release\SistemaWebClinica.Datos.dll
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\bin\Release\SistemaWebClinica.Datos.pdb
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\bin\Release\SistemaWebClinica.Entidades.dll
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\bin\Release\SistemaWebClinica.Entidades.pdb
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\obj\Release\SistemaWebClinica.Datos.csprojAssemblyReference.cache
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\obj\Release\SistemaWebClinica.Datos.csproj.CoreCompileInputs.cache
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\obj\Release\SistemaWebClinica.Datos.csproj.CopyComplete
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\obj\Release\SistemaWebClinica.Datos.dll
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Datos\obj\Release\SistemaWebClinica.Datos.pdb

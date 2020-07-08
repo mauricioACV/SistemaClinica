@@ -37,6 +37,20 @@ namespace SistemaWebClinica.Front
             return Lista;
         }
 
+        [WebMethod]
+        public static bool ActualizarDatosPaciente(string id, string direccion)
+        {
+            Paciente objPaciente = new Paciente()
+            {
+                IdPaciente = Convert.ToInt32(id),
+                Direccion = direccion
+            };
+
+            bool response = PacienteLN.GetInstance().ActualizarPaciente(objPaciente);
+
+            return response;
+        }
+
         private Paciente GetEntityPaciente()
         {
             Paciente objPaciente = new Paciente
@@ -57,7 +71,7 @@ namespace SistemaWebClinica.Front
             return objPaciente;
         }
 
-        protected void btnRegistrar_Click(object sender, EventArgs e)
+        protected void BtnRegistrar_Click(object sender, EventArgs e)
         {
             //Registro del Paciente
             Paciente objPaciente = GetEntityPaciente();

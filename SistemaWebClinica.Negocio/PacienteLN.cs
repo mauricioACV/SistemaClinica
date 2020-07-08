@@ -48,5 +48,19 @@ namespace SistemaWebClinica.Negocio
                 throw ex;
             }
         }
+
+        public bool ActualizarPaciente(Paciente objPaciente)
+        {
+            try
+            {
+                var operacionActualiza = PacienteDAO.GetInstance().ActualizarPaciente(objPaciente);
+                return operacionActualiza;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

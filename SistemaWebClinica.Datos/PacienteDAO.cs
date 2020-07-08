@@ -121,5 +121,33 @@ namespace SistemaWebClinica.Datos
             }
             return lista;
         }
+
+        public bool ActualizarPaciente(Paciente objPaciente)
+        {
+            bool response = false;
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                var query = @"UPDATE Paciente SET direccion='" + objPaciente.Direccion + "' WHERE idPaciente='" + objPaciente.IdPaciente + "'";
+
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand(query, conexion);
+                conexion.Open();
+                int filas = cmd.ExecuteNonQuery();
+                if (filas > 0) { response = true; }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return response;
+        }
     }
 }
