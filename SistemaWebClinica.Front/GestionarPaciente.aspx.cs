@@ -51,6 +51,15 @@ namespace SistemaWebClinica.Front
             return response;
         }
 
+        [WebMethod]
+        public static bool EliminarDatosPaciente(string idPaciente)
+        {
+            int id = Convert.ToInt32(idPaciente);
+            bool response = false;
+            response = PacienteLN.GetInstance().EliminarPaciente(id);
+            return response;
+        }
+
         private Paciente GetEntityPaciente()
         {
             Paciente objPaciente = new Paciente

@@ -62,5 +62,18 @@ namespace SistemaWebClinica.Negocio
                 throw ex;
             }
         }
+
+        public bool EliminarPaciente(int id)
+        {
+            try
+            {
+                return PacienteDAO.GetInstance().EliminarPaciente(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
