@@ -3,6 +3,12 @@
 var tabla, data;
 // variables globales
 
+//Carga datos para edición en modal
+function fillDataEditModal() {
+    $("#txtFullName").val(data[1] + " " + data[2]);
+    $("#txtModalDireccion").val(data[7]);
+}
+
 function templateRow() {
     var template = "<tr>";
     template += ("<td>" + "123" + "</td>");
@@ -24,7 +30,36 @@ function addRow() {
 }
 
 function addRowDT(data) {
-    tabla = $("#tbl_pacientes").DataTable();
+
+    tabla = $("#tbl_pacientes").DataTable({
+        "oLanguage": {
+            "sInfo": "De un total de (_TOTAL_) registros, mostrando (_START_ al _END_)",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sSearch": "Buscar Registros:",
+            "oPaginate": {
+                "sNext": "Siguiente",
+                "sPrevious": "Anterior"
+            },
+        },
+        "aaSorting": [[0, 'asc']],
+        "bSort": true,
+        "aoColumns": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            { "bSortable": false }
+        ],
+        bDestroy: true
+    });
+
+    tabla.fnClearTable();
+
     for (var i = 0; i < data.length; i++) {
         tabla.fnAddData([
             data[i].IdPaciente,
@@ -82,6 +117,29 @@ function updateDataAjax() {
     });
 }
 
+function deleteDataAjax(data) {
+    var obj = JSON.stringify({ idPaciente: JSON.stringify(data)});
+
+    $.ajax({
+        type: "POST",
+        url: "GestionarPaciente.aspx/EliminarDatosPaciente",
+        data: obj,
+        dataType: "json",
+        contentType: 'application/json; chartset=utf-8',
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status + "\n" + xhr.responseText, "\n" + thrownError);
+        },
+        success: function (response) {
+            if (response.d) {
+                alert("Registro actualizado con exito");
+            }
+            else {
+                alert("Problemas para actualizar...")
+            }
+        }
+    });
+}
+
 // evento click boton actualizar registro
 $(document).on('click', '.btn-edit', function (e) {
     e.preventDefault();
@@ -92,17 +150,23 @@ $(document).on('click', '.btn-edit', function (e) {
 
 // evento click boton eliminar registro
 $(document).on('click', '.btn-delete', function (e) {
-    e.preventDefault();
+
+    //metodo1: eliminar fila solo del datatable no de BD
+   /* e.preventDefault();
     var row = $(this).parent().parent()[0];
     var data = tabla.fnGetData(row);
-    console.log(data);
-});
+    var objetoPaciente = tabla.fnDeleteRow(data);
+    console.log(objetoPaciente);*/
 
-//Carga datos para edición en modal
-function fillDataEditModal() {
-    $("#txtFullName").val(data[1] + " " + data[2]);
-    $("#txtModalDireccion").val(data[7]);
-}
+    //metodo2: eliminar de BD
+    e.preventDefault();
+    var row = $(this).parent().parent()[0];
+    var dataRow = tabla.fnGetData(row);
+    //paso1: enviar id por medio de ajax
+    deleteDataAjax(dataRow[0]);
+    //paso2: renderizar el datatable
+    sendDataAjax();
+});
 
 //Enviar informacion actualizada al servidor
 $("#btnactualizar").click(function (e) {

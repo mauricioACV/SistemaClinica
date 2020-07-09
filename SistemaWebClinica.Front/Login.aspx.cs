@@ -1,32 +1,47 @@
-﻿using SistemaWebClinica.Entidades;
-using SistemaWebClinica.Negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
+using SistemaWebClinica.Entidades;
+using SistemaWebClinica.Negocio;
+using SistemaWebClinica.Front.Custom;
 
 namespace SistemaWebClinica.Front
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                Session["UserSessionId"] = null;
+            }
         }
 
-        protected void btnIngresar_Click(object sender, EventArgs e)
+        protected void LoginUser_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            Empleado objEmpleado = EmpleadoLN.GetInstance().AccesoSistema(txtUsuario.Text, txtPassword.Text);
-        
-            if (objEmpleado != null)
+            bool auth = Membership.ValidateUser(LoginUser.UserName, LoginUser.Password);
+
+            if (auth)
             {
-                Response.Redirect("PanelGeneral.aspx");
-            }
-            else
-            {
-                Response.Write("<script>alert('Usuario Incorrecto')</script>");
+                Empleado objEmpleado = EmpleadoLN.GetInstance().AccesoSistema(LoginUser.UserName, LoginUser.Password);
+
+                if (objEmpleado != null)
+                {
+                    SessionManager = new SessionManager(Session)
+                    {
+                        //Response.Redirect("PanelGeneral.aspx");
+                        UserSessionId = objEmpleado.Id.ToString()
+                    };
+                    FormsAuthentication.RedirectFromLoginPage(LoginUser.UserName, false);
+                }
+                else
+                {
+                    Response.Write("<script>alert('Usuario Incorrecto')</script>");
+                }
             }
         }
     }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SistemaWebClinica.Front
 {
-    public partial class PanelGeneral : System.Web.UI.Page
+    public partial class PanelGeneral : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
