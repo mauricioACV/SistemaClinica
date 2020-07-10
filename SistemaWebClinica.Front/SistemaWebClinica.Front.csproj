@@ -234,6 +234,7 @@
     <Content Include="css\morris\morris.css" />
     <Content Include="css\timepicker\bootstrap-timepicker.css" />
     <Content Include="css\timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="GestionarHorarioAtencion.aspx" />
     <Content Include="GestionarPaciente.aspx" />
     <Content Include="img\ajax-loader.gif" />
     <Content Include="img\ajax-loader1.gif" />
@@ -281,8 +282,9 @@
     <Content Include="js\AdminLTE\dashboard.js" />
     <Content Include="js\AdminLTE\demo.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\GestionarHorarioAtencion.js" />
     <Content Include="js\logout.js" />
-    <Content Include="js\paciente.js" />
+    <Content Include="js\GestionarPaciente.js" />
     <Content Include="js\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="js\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
     <Content Include="js\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.js" />
@@ -416,6 +418,13 @@
     </Compile>
     <Compile Include="Custom\CustomMembershipProvider.cs" />
     <Compile Include="Custom\SessionManager.cs" />
+    <Compile Include="GestionarHorarioAtencion.aspx.cs">
+      <DependentUpon>GestionarHorarioAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarHorarioAtencion.aspx.designer.cs">
+      <DependentUpon>GestionarHorarioAtencion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionarPaciente.aspx.cs">
       <DependentUpon>GestionarPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

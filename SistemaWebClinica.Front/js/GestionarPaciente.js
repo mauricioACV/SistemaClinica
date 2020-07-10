@@ -1,7 +1,6 @@
 ﻿
 // variables globales
 var tabla, data;
-// variables globales
 
 //Carga datos para edición en modal
 function fillDataEditModal() {

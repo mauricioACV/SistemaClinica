@@ -155,5 +155,5 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
-    <script src="js/paciente.js" type="text/javascript"></script>
+    <script src="js/GestionarPaciente.js" type="text/javascript"></script>
 </asp:Content>
