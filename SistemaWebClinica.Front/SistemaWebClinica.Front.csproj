@@ -398,6 +398,7 @@
     <Content Include="js\plugins\misc\jquery.placeholder.js" />
     <Content Include="js\plugins\misc\modernizr.min.js" />
     <Content Include="js\plugins\misc\respond.min.js" />
+    <Content Include="js\plugins\moment\moment.min.js" />
     <Content Include="js\plugins\morris\morris.js" />
     <Content Include="js\plugins\morris\morris.min.js" />
     <Content Include="js\plugins\slimScroll\jquery.slimscroll.js" />

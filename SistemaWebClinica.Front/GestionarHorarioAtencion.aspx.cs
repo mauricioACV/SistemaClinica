@@ -17,5 +17,24 @@ namespace SistemaWebClinica.Front
         {
             return MedicoLN.GetInstance().BuscarMedico(rut);
         }
+
+        [WebMethod]
+        public static HorarioAtencion AgregarHorario(string fecha, string hora, string idMedico)
+        {
+            HorarioAtencion objHorarioAtencion = new HorarioAtencion()
+            {
+                Fecha = Convert.ToDateTime(fecha),
+                Hora = new Hora()
+                {
+                    HoraAtencion = hora
+                },
+                Medico = new Medico()
+                {
+                    IdMedico = Convert.ToInt32(idMedico)
+                }
+            }; 
+
+            return HorarioAtencionLN.GetInstance().AgregarHorario(objHorarioAtencion);
+        }
     }
 }

@@ -8,6 +8,7 @@ function fillDataEditModal() {
     $("#txtModalDireccion").val(data[7]);
 }
 
+//funciones dummy para llenar datatable con datos sin conexion
 function templateRow() {
     var template = "<tr>";
     template += ("<td>" + "123" + "</td>");
@@ -27,6 +28,7 @@ function addRow() {
         $("#tbl_body_table").append(template);
     }
 }
+//------------------------------------------------------------
 
 function addRowDT(data) {
 
@@ -70,8 +72,8 @@ function addRowDT(data) {
             data[i].NroDocumento,
             data[i].Direccion,
             data[i].Telefono,
-            '<Button value="Actualizar" title="Actualizar" class="btn btn-primary btn-xs btn-edit" data-target="#editmodal" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button>&nbsp;' +
-            '<Button value="Eliminar" title="Eliminar" class="btn btn-danger btn-xs btn-delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>'
+            '<Button type="button" value="Actualizar" title="Actualizar" class="btn btn-primary btn-xs btn-edit" data-target="#editmodal" data-toggle="modal"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button>&nbsp;' +
+            '<Button type="button" value="Eliminar" title="Eliminar" class="btn btn-danger btn-xs btn-delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>'
             //((data[i].estado==true)? "ACTIVO" : "INACTIVO")
         ]);
     }
