@@ -1,4 +1,6 @@
-﻿
+﻿//LLamado a la funcion de ajax al cargar el documento
+sendDataAjax();
+
 // variables globales
 var tabla, data;
 
@@ -8,7 +10,7 @@ function fillDataEditModal() {
     $("#txtModalDireccion").val(data[7]);
 }
 
-//funciones dummy para llenar datatable con datos sin conexion
+//funciones dummy para llenar datatable con datos sin conexion---------->
 function templateRow() {
     var template = "<tr>";
     template += ("<td>" + "123" + "</td>");
@@ -28,7 +30,7 @@ function addRow() {
         $("#tbl_body_table").append(template);
     }
 }
-//------------------------------------------------------------
+//funciones dummy------------------------------------------------------->
 
 function addRowDT(data) {
 
@@ -173,7 +175,4 @@ $(document).on('click', '.btn-delete', function (e) {
 $("#btnactualizar").click(function (e) {
     e.preventDefault();
     updateDataAjax();
-})
-
-//LLamado a la funcion de ajax al cargar el documento
-sendDataAjax();
+});

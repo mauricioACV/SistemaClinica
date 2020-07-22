@@ -24,6 +24,54 @@ namespace SistemaWebClinica.Datos
         }
         #endregion
 
+        public List<HorarioAtencion> ListarHorarioMedico(int id)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<HorarioAtencion> listaHorarios = new List<HorarioAtencion>();
+
+            try
+            {
+                var query = @"SELECT M.idMedico, HA.idHorarioAtencion, HA.fecha, H.Hora
+                              FROM Medico M 
+                              INNER JOIN HorarioAtencion HA ON (M.idMedico = HA.idMedico)
+                              INNER JOIN Hora H ON (HA.idHoraInicio = H.idHora)
+                              WHERE M.idMedico = '" + id + "' AND CONVERT(VARCHAR(10), HA.fecha, 103) >= CONVERT(VARCHAR(10), GETDATE(), 103) AND HA.estado=1";
+
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand(query, conexion);
+                conexion.Open();
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    HorarioAtencion objHorarioAtencion = new HorarioAtencion
+                    {
+                        IdHorarioAtencion = Convert.ToInt32(dr["idHorarioAtencion"].ToString()),
+                        Fecha = Convert.ToDateTime(dr["fecha"].ToString()),
+                        Hora = new Hora()
+                        {
+                            HoraAtencion = dr["hora"].ToString()
+                        }
+                    };
+
+                    listaHorarios.Add(objHorarioAtencion);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return listaHorarios;
+        }
+
         public HorarioAtencion AgregarHorario(HorarioAtencion objHorarioAtencion)
         {
             SqlConnection conexion = null;
@@ -68,6 +116,70 @@ namespace SistemaWebClinica.Datos
                 conexion.Close();
             }
             return objHorario;
+        }
+
+        public bool EliminarHorarioAtencion(int idHorarioAtencion)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            bool respuesta = false;
+
+            try
+            {
+                var query = @"UPDATE HorarioAtencion
+                              SET Estado = 0
+                              WHERE idHorarioAtencion = '" + idHorarioAtencion + "' ";
+
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand(query, conexion);                
+                conexion.Open();
+                cmd.ExecuteNonQuery();
+
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return respuesta;
+        }
+
+        public bool ActualizarHorarioMedico(HorarioAtencion objHorarioAtencion)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            bool respuesta = false;
+
+            try
+            {
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand("spActualizarHorarioAtencion", conexion);
+                cmd.Parameters.AddWithValue("@prmIdMedico", objHorarioAtencion.Medico.IdMedico);
+                cmd.Parameters.AddWithValue("@prmIdHorario", objHorarioAtencion.IdHorarioAtencion);
+                cmd.Parameters.AddWithValue("@prmFecha", objHorarioAtencion.Fecha);
+                cmd.Parameters.AddWithValue("@prmHora", objHorarioAtencion.Hora.HoraAtencion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conexion.Open();
+                cmd.ExecuteNonQuery();
+
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return respuesta;
         }
     }
 }

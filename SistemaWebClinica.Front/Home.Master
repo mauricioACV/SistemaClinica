@@ -7,7 +7,7 @@
 <meta http-equiv="content-language" content="es" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Sistema Clínico</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/font-awesome.css"/>
     <!-- Ionicons -->

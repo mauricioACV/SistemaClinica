@@ -23,11 +23,54 @@ namespace SistemaWebClinica.Negocio
         }
         #endregion
 
+        public List<HorarioAtencion> ListarHorarioMedico(int id)
+        {
+            try
+            {
+                var ListadoHorarios = HorarioAtencionDAO.GetInstance().ListarHorarioMedico(id);
+                return ListadoHorarios;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public HorarioAtencion AgregarHorario(HorarioAtencion objHorarioAtencion)
         {
             try
             {
-                return HorarioAtencionDAO.GetInstance().AgregarHorario(objHorarioAtencion);
+                var HorarioAgregado = HorarioAtencionDAO.GetInstance().AgregarHorario(objHorarioAtencion);
+                return HorarioAgregado;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }        
+
+        public bool EliminarHorarioAtencion(int id)
+        {
+            try
+            {
+                var respuesta = HorarioAtencionDAO.GetInstance().EliminarHorarioAtencion(id);
+                return respuesta;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool ActualizarHorarioAtencion(HorarioAtencion objHorarioAtencion)
+        {
+            try
+            {
+                var respuesta = HorarioAtencionDAO.GetInstance().ActualizarHorarioMedico(objHorarioAtencion);
+                return respuesta;
             }
             catch (Exception ex)
             {

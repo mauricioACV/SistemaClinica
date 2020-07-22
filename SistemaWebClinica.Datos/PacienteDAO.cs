@@ -25,10 +25,10 @@ namespace SistemaWebClinica.Datos
 
         public List<Paciente> ListarPacientes()
         {
-            List<Paciente> lista = new List<Paciente>();
             SqlConnection conexion = null;
             SqlCommand cmd = null;
             SqlDataReader dr = null;
+            List<Paciente> lista = new List<Paciente>();
 
             try
             {
@@ -58,24 +58,6 @@ namespace SistemaWebClinica.Datos
 
                     lista.Add(objPaciente);
                 }
-
-                /*using (SqlDataReader dr = cmd.ExecuteReader())
-                {
-                    Paciente objPaciente = new Paciente
-                    {
-                        IdPaciente = Convert.ToInt32(dr["idPaciente"].ToString()),
-                        Nombres = dr["nombres"].ToString(),
-                        ApPaterno = dr["apPaterno"].ToString(),
-                        ApMaterno = dr["apMaterno"].ToString(),
-                        Edad = Convert.ToInt32(dr["edad"].ToString()),
-                        Sexo = Convert.ToChar(dr["sexo"].ToString()),
-                        NroDocumento = dr["nroDocumento"].ToString(),
-                        Direccion = dr["direccion"].ToString(),
-                        Estado = true
-                    };
-
-                    lista.Add(objPaciente);
-                }*/
             }
             catch (Exception ex)
             {
@@ -122,6 +104,34 @@ namespace SistemaWebClinica.Datos
             return response;
         }
 
+        public bool EliminarPaciente(int id)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            bool response = false;
+            try
+            {
+                var query = @"DELETE from Paciente WHERE idPaciente='" + id + "' ";
+
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand(query, conexion);
+                conexion.Open();
+                int filas = cmd.ExecuteNonQuery();
+                if (filas > 0) { response = true; }
+            }
+            catch (Exception ex)
+            {
+                response = false;
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return response;
+        }
+
         public bool ActualizarPaciente(Paciente objPaciente)
         {
             bool response = false;
@@ -150,32 +160,5 @@ namespace SistemaWebClinica.Datos
             return response;
         }
 
-        public bool EliminarPaciente(int id)
-        {
-            SqlConnection conexion = null;
-            SqlCommand cmd = null;
-            bool response = false;
-            try
-            {
-                var query = @"DELETE from Paciente WHERE idPaciente='" + id + "' ";
-
-                conexion = Conexion.GetInstance().ConexionBd();
-                cmd = new SqlCommand(query, conexion);
-                conexion.Open();
-                int filas = cmd.ExecuteNonQuery();
-                if (filas > 0) { response = true; }
-            }
-            catch (Exception ex)
-            {
-                response = false;
-                throw ex;
-            }
-            finally
-            {
-                conexion.Close();
-            }
-
-            return response;
-        }
     }
 }

@@ -29,7 +29,6 @@
                         <asp:Label ID="lblApellidos" runat="server" Text=""></asp:Label><br /><br />
                         <strong>Especialidad: </strong>
                         <asp:Label ID="lblEspecialidad" runat="server" Text=""></asp:Label><br /><br />
-                        <input type="hidden" id="txtIdMedico" />
                     </div>
                 </div>
             </div>
@@ -42,26 +41,18 @@
                         <table id="tbl_horarios" class="table table-bordered table-hover text-center">
                             <thead>
                                 <tr>
+                                    <th></th><!-- contenedor del id horario-->
                                     <th>Acciones</th>
                                     <th>Fecha de Atención</th>
                                     <th>Hora de Atención</th>
-                                    <th style="display:none">Estado</th>
                                 </tr>
                             </thead>
                             <tbody id="tbl_body_table">
                                 <!-- DATA POR MEDIO DE AJAX-->
-                               <%-- <tr>
-                                    <td>boton-editar</td>
-                                    <td>boton-eliminar</td>
-                                    <td>campo-fecha</td>
-                                    <td>campo-hora</td>
-                                    <td style="display:none">estado</td>
-                                </tr>--%>
                             </tbody>
                         </table>
                     </div>
                     <div class="box-footer" style="text-align: center">
-                        <%--<asp:Button ID="btnAgregarHorario" runat="server" CssClass="btn btn-primary" Text="Agregar Horario" />--%>
                         <asp:LinkButton ID="btnAgregarHorario" runat="server" CssClass="btn btn-primary" href="#AgregarHorario" data-toggle="modal">Agregar Horario</asp:LinkButton>
                         <asp:Button ID="btnGuardarHorario" runat="server" CssClass="btn btn-success" Text="Guardar Horario" />
                     </div>
@@ -70,7 +61,7 @@
         </div>
     </section>
 
-     <!-- Inicio Modal Horarios-->
+     <!-- Inicio Modal Agregar Horarios atención-->
      <div class="modal fade" id="AgregarHorario" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -107,6 +98,49 @@
         </div>
     </div>
     <!-- Fin Modal Horarios-->
+
+    <!-- Inicio Modal actualizar información Horarios atención-->
+    <div class="modal fade" id="editarHorario" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h3 class="modal-title"><i class="fa fa-clock-o"></i>Editar Horario Atención</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Fecha:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <asp:TextBox ID="txtEditarFecha" CssClass="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="bootstrap-timepicker">
+                        <div class="form-group">
+                            <label>Hora Inicio:</label>
+                            <div class="input-group">
+                                <asp:TextBox ID="txtEditarHora" CssClass="form-control timepicker" runat="server"></asp:TextBox>
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Actualizar" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modal Horarios-->
+
+    <!-- contenedor Id Medico y HorarioMedico -->
+    <input type="hidden" id="txtIdMedico" />
+    <input type="hidden" id="txtIdHorario" />
+    <!-- Fin contenedor Id -->
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">

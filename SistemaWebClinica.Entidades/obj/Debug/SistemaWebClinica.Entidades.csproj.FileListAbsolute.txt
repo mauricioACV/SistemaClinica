@@ -3,3 +3,4 @@ C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Entidades\
 C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Entidades\obj\Debug\SistemaWebClinica.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Entidades\obj\Debug\SistemaWebClinica.Entidades.dll
 C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Entidades\obj\Debug\SistemaWebClinica.Entidades.pdb
+C:\Users\MauricioACV\source\repos\SistemaWebClinica\SistemaWebClinica.Entidades\obj\Debug\SistemaWebClinica.Entidades.csprojAssemblyReference.cache
