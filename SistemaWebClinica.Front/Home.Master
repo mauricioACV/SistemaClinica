@@ -4,20 +4,20 @@
 
 <html>
 <head runat="server">
-<meta http-equiv="content-language" content="es" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-language" content="es" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Sistema Clínico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/font-awesome.css" />
     <!-- Ionicons -->
     <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <link href="jquery/jAlert/jquery.alerts.css" rel="stylesheet" type="text/css" />
-    
+
     <!-- DataTables -->
     <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" />
-       <style>
+    <style>
         html, body {
             min-height: 100%;
             padding: 0;
@@ -163,7 +163,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="GestionarReservaCita.aspx">
                             <i class="fa fa-th"></i>
                             <span>Reserva de Citas</span>
                         </a>
@@ -173,7 +173,7 @@
                             <i class="fa fa-th"></i>
                             <span>Horarios</span>
                             <i class="fa fa-angle-left pull-right"></i>
-                        </a>                        
+                        </a>
                         <ul class="treeview-menu">
                             <li>
                                 <a href="GestionarHorarioAtencion.aspx"><i class="fa fa-angle-double-right"></i>Horarios Médicos</a>
@@ -183,22 +183,22 @@
                 </ul>
             </section>
         </aside>
-         <aside class="right-side">
-        <section class="content-header">
-            <h1>
-                <asp:Label ID="lblOpcionMenu" runat="server" Text="Panel General"></asp:Label>
-            </h1>
-        </section>
-        <section class="content">
-            <form id="form1" runat="server">
-                <div>
-                    <asp:ContentPlaceHolder ID="contentBody" runat="server">
-                        <!-- Carga de contenido dinamico dentro de MASTERPAGE-->
-                    </asp:ContentPlaceHolder>
-                </div>
-            </form>
-        </section>
-    </aside>
+        <aside class="right-side">
+            <section class="content-header">
+                <h1>
+                    <asp:Label ID="lblOpcionMenu" runat="server" Text="Panel General"></asp:Label>
+                </h1>
+            </section>
+            <section class="content">
+                <form id="form1" runat="server">
+                    <div>
+                        <asp:ContentPlaceHolder ID="contentBody" runat="server">
+                            <!-- Carga de contenido dinamico dentro de MASTERPAGE-->
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </form>
+            </section>
+        </aside>
     </div>
 
     <script src="jquery/jquery.min.js"></script>

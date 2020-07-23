@@ -24,6 +24,62 @@ namespace SistemaWebClinica.Datos
         }
         #endregion
 
+        public List<HorarioAtencion> ListarHorarioPorFechaEspecialidad(int idEspecialidad, DateTime fecha)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            List<HorarioAtencion> listaHorariosPorFechaEspecialidad = null;
+
+            try
+            {
+                var query = @"SELECT HA.idHorarioAtencion, HA.fecha, M.idMedico, E.nombres, H.idHora, H.hora
+                            FROM HorarioAtencion HA
+                            INNER JOIN Medico M ON (HA.idMedico = M.idMedico)
+                            INNER JOIN Empleado E ON (M.idEmpleado = E.idEmpleado)
+                            INNER JOIN Hora H ON (HA.idHoraInicio = H.idHora)
+                            WHERE FORMAT (HA.fecha, 'dd-MM-yyyy 0:00:00') = '" + fecha + "' AND M.idEspecialidad = '" + idEspecialidad + "'";
+
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand(query, conexion);
+                conexion.Open();
+                dr = cmd.ExecuteReader();
+                listaHorariosPorFechaEspecialidad = new List<HorarioAtencion>();
+
+                while (dr.Read())
+                {
+                    HorarioAtencion objHorarios = new HorarioAtencion
+                    {
+                        IdHorarioAtencion = Convert.ToInt32(dr["idHorarioAtencion"].ToString()),
+                        Fecha = Convert.ToDateTime(dr["fecha"].ToString()),
+                        Medico = new Medico()
+                        {
+                            Id = Convert.ToInt32(dr["idMedico"].ToString()),
+                            Nombre = dr["nombres"].ToString()
+                        },
+                        Hora = new Hora()
+                        {
+                            IdHora = Convert.ToInt32(dr["idHora"].ToString()),
+                            HoraAtencion = dr["hora"].ToString()
+                        }
+                    };
+
+                    listaHorariosPorFechaEspecialidad.Add(objHorarios);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return listaHorariosPorFechaEspecialidad;
+        }
+
         public List<HorarioAtencion> ListarHorarioMedico(int id)
         {
             SqlConnection conexion = null;

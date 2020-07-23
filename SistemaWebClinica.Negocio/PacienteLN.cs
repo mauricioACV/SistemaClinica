@@ -23,11 +23,11 @@ namespace SistemaWebClinica.Negocio
         }
         #endregion
 
-        public bool RegistrarPaciente(Paciente objPaciente)
+        public List<Paciente> ListarPacientes()
         {
             try
             {
-                return PacienteDAO.GetInstance().RegistrarPaciente(objPaciente); 
+                return PacienteDAO.GetInstance().ListarPacientes();
             }
             catch (Exception ex)
             {
@@ -36,11 +36,11 @@ namespace SistemaWebClinica.Negocio
             }
         }
 
-        public List<Paciente> ListarPacientes()
+        public bool RegistrarPaciente(Paciente objPaciente)
         {
             try
             {
-                return PacienteDAO.GetInstance().ListarPacientes();
+                return PacienteDAO.GetInstance().RegistrarPaciente(objPaciente); 
             }
             catch (Exception ex)
             {
@@ -68,6 +68,20 @@ namespace SistemaWebClinica.Negocio
             try
             {
                 return PacienteDAO.GetInstance().EliminarPaciente(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public Paciente BuscarPacientePorDni(string dni)
+        {
+            try
+            {
+                var Paciente = PacienteDAO.GetInstance().BuscarPacientePorDni(dni);
+                return Paciente;
             }
             catch (Exception ex)
             {

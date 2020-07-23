@@ -236,6 +236,7 @@
     <Content Include="css\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="GestionarHorarioAtencion.aspx" />
     <Content Include="GestionarPaciente.aspx" />
+    <Content Include="GestionarReservaCita.aspx" />
     <Content Include="img\ajax-loader.gif" />
     <Content Include="img\ajax-loader1.gif" />
     <Content Include="img\avatar.png" />
@@ -283,6 +284,7 @@
     <Content Include="js\AdminLTE\demo.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\GestionarHorarioAtencion.js" />
+    <Content Include="js\GestionarReservaCita.js" />
     <Content Include="js\logout.js" />
     <Content Include="js\GestionarPaciente.js" />
     <Content Include="js\plugins\bootstrap-slider\bootstrap-slider.js" />
@@ -432,6 +434,13 @@
     </Compile>
     <Compile Include="GestionarPaciente.aspx.designer.cs">
       <DependentUpon>GestionarPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarReservaCita.aspx.cs">
+      <DependentUpon>GestionarReservaCita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarReservaCita.aspx.designer.cs">
+      <DependentUpon>GestionarReservaCita.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.Master.cs">
       <DependentUpon>Home.Master</DependentUpon>

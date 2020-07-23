@@ -22,13 +22,26 @@ namespace SistemaWebClinica.Negocio
             return _horarioAtencion;
         }
         #endregion
-
+    
         public List<HorarioAtencion> ListarHorarioMedico(int id)
         {
             try
             {
                 var ListadoHorarios = HorarioAtencionDAO.GetInstance().ListarHorarioMedico(id);
                 return ListadoHorarios;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<HorarioAtencion> ListarHorarioPorFechaEspecialidad(int idEspecialidad, DateTime fecha)
+        {
+            try
+            {
+                return HorarioAtencionDAO.GetInstance().ListarHorarioPorFechaEspecialidad(idEspecialidad, fecha);
             }
             catch (Exception ex)
             {
