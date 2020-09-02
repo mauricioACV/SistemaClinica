@@ -168,6 +168,12 @@
                             <span>Reserva de Citas</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="GestionarAtencionPaciente.aspx">
+                            <i class="fa fa-th"></i>
+                            <span>Atención de Citas</span>
+                        </a>
+                    </li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-th"></i>
@@ -191,6 +197,10 @@
             </section>
             <section class="content">
                 <form id="form1" runat="server">
+
+                    <asp:ScriptManager ID="scriptManager" runat="server">
+                    </asp:ScriptManager>
+                    
                     <div>
                         <asp:ContentPlaceHolder ID="contentBody" runat="server">
                             <!-- Carga de contenido dinamico dentro de MASTERPAGE-->

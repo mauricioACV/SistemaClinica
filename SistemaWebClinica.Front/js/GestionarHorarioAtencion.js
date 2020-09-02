@@ -93,7 +93,7 @@ function eliminaHorarioAjax(data) {
         },
         success: function (response) {
             if (response.d) {
-                alert("Registro actualizado con exito");
+                alert("Registro eliminado con exito");
             }
             else {
                 alert("Problemas para actualizar...")
@@ -207,9 +207,9 @@ $(document).on('click', '.btn-delete', function (e) {
 
     //paso1: enviar id por medio de ajax
     eliminaHorarioAjax(dataRow[0]);
-    
+
     //paso2: renderizar el datatable
-    listarHorarioMedico($("#txtIdMedico").val);
+    listarHorarioMedico($("#txtIdMedico").val());
     
 });
 

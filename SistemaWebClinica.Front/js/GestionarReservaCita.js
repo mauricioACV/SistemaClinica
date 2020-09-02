@@ -1,4 +1,8 @@
-﻿$("#btnBuscar").on('click', function (e) {
+﻿//Iniciar timepicker y date
+$("[data-mask]").inputmask();
+
+//funcionalidad de boton buscar paciente
+$("#btnBuscar").on('click', function (e) {
     e.preventDefault();
 
     var dni = $("#txtDNI").val();

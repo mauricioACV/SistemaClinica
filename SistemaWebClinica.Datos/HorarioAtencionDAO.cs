@@ -54,7 +54,7 @@ namespace SistemaWebClinica.Datos
                         Fecha = Convert.ToDateTime(dr["fecha"].ToString()),
                         Medico = new Medico()
                         {
-                            Id = Convert.ToInt32(dr["idMedico"].ToString()),
+                            IdMedico = Convert.ToInt32(dr["idMedico"].ToString()),
                             Nombre = dr["nombres"].ToString()
                         },
                         Hora = new Hora()

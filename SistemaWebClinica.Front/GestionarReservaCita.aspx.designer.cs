@@ -13,13 +13,13 @@ namespace SistemaWebClinica.Front {
     public partial class GestionarReservaCita {
         
         /// <summary>
-        /// Control hfIdPaciente.
+        /// Control upPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfIdPaciente;
+        protected global::System.Web.UI.UpdatePanel upPanel;
         
         /// <summary>
         /// Control txtDNI.
@@ -128,5 +128,14 @@ namespace SistemaWebClinica.Front {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReservarCita;
+        
+        /// <summary>
+        /// Control idPaciente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField idPaciente;
     }
 }
