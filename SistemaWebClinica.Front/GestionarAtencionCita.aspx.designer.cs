@@ -10,69 +10,87 @@
 namespace SistemaWebClinica.Front {
     
     
-    public partial class Home {
+    public partial class GestionarAtencionCita {
         
         /// <summary>
-        /// head control.
+        /// imgPaciente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Image imgPaciente;
         
         /// <summary>
-        /// txtUser control.
+        /// lblNombres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtUser;
+        protected global::System.Web.UI.WebControls.Label lblNombres;
         
         /// <summary>
-        /// lblOpcionMenu control.
+        /// lblApellidos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOpcionMenu;
+        protected global::System.Web.UI.WebControls.Label lblApellidos;
         
         /// <summary>
-        /// form1 control.
+        /// lblEdad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblEdad;
         
         /// <summary>
-        /// scriptManager control.
+        /// lblSexo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptManager;
+        protected global::System.Web.UI.WebControls.Label lblSexo;
         
         /// <summary>
-        /// contentBody control.
+        /// txtObservaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder contentBody;
+        protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
         
         /// <summary>
-        /// footer control.
+        /// txtDiagnostico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder footer;
+        protected global::System.Web.UI.WebControls.TextBox txtDiagnostico;
+        
+        /// <summary>
+        /// btnRegistrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegistrar;
+        
+        /// <summary>
+        /// hfIdPaciente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfIdPaciente;
     }
 }

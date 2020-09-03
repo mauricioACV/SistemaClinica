@@ -31,12 +31,17 @@ namespace SistemaWebClinica.Front.Custom
         }
 
 
-        public Empleado UserSessionEmpleado
+        public string UserSessionEmpleado
         {
             set { CurrentSession["UserSessionEmpleado"] = value; }
-            get { return (Empleado)CurrentSession["UserSessionEmpleado"]; }
+            get { return (string)CurrentSession["UserSessionEmpleado"]; }
         }
 
+        public Empleado UserSessionObjeto
+        {
+            set { CurrentSession["UserSessionObjeto"] = value; }
+            get { return (Empleado)CurrentSession["UserSessionObjeto"]; }
+        }
         #endregion
     }
 }

@@ -50,7 +50,9 @@ namespace SistemaWebClinica.Datos
                     {
                         Id = Convert.ToInt32(dr["idEmpleado"].ToString()),
                         Usuario = dr["usuario"].ToString(),
-                        Clave = dr["clave"].ToString()
+                        Clave = dr["clave"].ToString(),
+                        Nombre = dr["nombres"].ToString(),
+                        ApPaterno = dr["apPaterno"].ToString()
                     };
                 }
             }

@@ -206,5 +206,52 @@ namespace SistemaWebClinica.Datos
 
             return objPaciente;
         }
+
+        public Paciente BuscarPacientePorId(int idPaciente)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            Paciente objPaciente = null;
+
+            try
+            {
+                var query = @"SELECT p.idPaciente,p.nombres,p.apPaterno,p.apMaterno,p.edad,p.sexo,p.nroDocumento,p.direccion, p.telefono,p.estado
+                               FROM Paciente p WHERE p.idPaciente = '" + idPaciente + "' ";
+
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand(query, conexion);
+                conexion.Open();
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    objPaciente = new Paciente
+                    {
+                        IdPaciente = Convert.ToInt32(dr["idPaciente"]),
+                        Nombres = dr["nombres"].ToString(),
+                        ApPaterno = dr["apPaterno"].ToString(),
+                        ApMaterno = dr["apMaterno"].ToString(),
+                        Telefono = dr["telefono"].ToString(),
+                        Edad = Convert.ToInt32(dr["edad"].ToString()),
+                        Sexo = Convert.ToChar(dr["sexo"].ToString())
+                    };
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return objPaciente;
+        }
+
     }
 }

@@ -36,11 +36,23 @@ namespace SistemaWebClinica.Negocio
             }
         }
 
-        public List<Cita> LitasCitas()
+        public List<Cita> LitarCitas()
         {
             try
             {
                 return CitaDAO.GetInstance().ListarCitas();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool ActualizarCita(int idCita, string estado)
+        {
+            try
+            {
+                return CitaDAO.GetInstance().ActualizarCita(idCita, estado);
             }
             catch (Exception ex)
             {

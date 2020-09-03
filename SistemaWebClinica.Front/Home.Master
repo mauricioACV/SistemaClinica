@@ -146,7 +146,9 @@
                         <img src="img/avatar5.png" class="img-circle" alt="User Image" />
                     </div>
                     <div class="pull-left info">
-                        <p>Bienvenido Sr(a). Mauricio C.</p>
+                        <p>
+                            Bienvenido Sr(a).<br/><asp:Label runat="server" ID="txtUser"></asp:Label>
+                        </p>
                     </div>
                 </div>
                 <ul class="sidebar-menu">
@@ -172,6 +174,12 @@
                         <a href="GestionarAtencionPaciente.aspx">
                             <i class="fa fa-th"></i>
                             <span>Atención de Citas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="GestionarAtencionCita.aspx">
+                            <i class="fa fa-th"></i>
+                            <span>Gestión de Citas</span>
                         </a>
                     </li>
                     <li class="treeview">

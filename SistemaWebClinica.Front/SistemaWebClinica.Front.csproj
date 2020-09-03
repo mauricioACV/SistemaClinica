@@ -234,6 +234,7 @@
     <Content Include="css\morris\morris.css" />
     <Content Include="css\timepicker\bootstrap-timepicker.css" />
     <Content Include="css\timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="GestionarAtencionCita.aspx" />
     <Content Include="GestionarAtencionPaciente.aspx" />
     <Content Include="GestionarHorarioAtencion.aspx" />
     <Content Include="GestionarPaciente.aspx" />
@@ -422,6 +423,13 @@
     </Compile>
     <Compile Include="Custom\CustomMembershipProvider.cs" />
     <Compile Include="Custom\SessionManager.cs" />
+    <Compile Include="GestionarAtencionCita.aspx.cs">
+      <DependentUpon>GestionarAtencionCita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarAtencionCita.aspx.designer.cs">
+      <DependentUpon>GestionarAtencionCita.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionarAtencionPaciente.aspx.cs">
       <DependentUpon>GestionarAtencionPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

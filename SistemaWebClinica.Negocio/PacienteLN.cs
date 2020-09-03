@@ -89,5 +89,17 @@ namespace SistemaWebClinica.Negocio
                 throw ex;
             }
         }
+
+        public Paciente BuscarPacientePorId(int idPaciente)
+        {
+            try
+            {
+                return PacienteDAO.GetInstance().BuscarPacientePorId(idPaciente);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

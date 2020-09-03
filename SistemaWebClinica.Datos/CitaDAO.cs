@@ -112,5 +112,34 @@ namespace SistemaWebClinica.Datos
             }
             return ListaCitas;
         }
+
+        public bool ActualizarCita(int idCita, string estado)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            bool respuesta = false;
+
+            try
+            {
+                var query = @"UPDATE Cita set estado='" + estado + "' WHERE idCita='" + idCita+"'";
+
+                conexion = Conexion.GetInstance().ConexionBd();
+                cmd = new SqlCommand(query, conexion);
+                conexion.Open();
+                int filas = cmd.ExecuteNonQuery();
+                if (filas > 0) { respuesta = true; }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return respuesta;
+        }
+
     }
 }

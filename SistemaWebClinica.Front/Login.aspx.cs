@@ -31,11 +31,9 @@ namespace SistemaWebClinica.Front
 
                 if (objEmpleado != null)
                 {
-                    SessionManager = new SessionManager(Session)
-                    {
-                        //Response.Redirect("PanelGeneral.aspx");
-                        UserSessionId = objEmpleado.Id.ToString()
-                    };
+                    SessionManager = new SessionManager(Session);
+                    SessionManager.UserSessionObjeto = objEmpleado;
+
                     FormsAuthentication.RedirectFromLoginPage(LoginUser.UserName, false);
                 }
                 else

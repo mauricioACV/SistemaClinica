@@ -21,6 +21,7 @@
                             <strong>&nbsp;&nbsp;ID Cita:</strong>
                             <asp:Label ID="lblIdCita" runat="server" Text='<%#Eval("IdCita") %>' Font-Size="Medium"></asp:Label><br />
                             <asp:HiddenField ID="hdIdCita" runat="server" Value='<%#Eval("IdCita") %>' Visible="false" />
+                            <asp:HiddenField ID="hdIdPaciente" runat="server" Value='<%#Eval("Paciente.IdPaciente") %>' Visible="false" />
                             <strong>&nbsp;&nbsp;Nombres:</strong>
                             <asp:Label ID="lblNombres" runat="server" Text='<%#Eval("Paciente.Nombres") %>' Font-Size="Medium"></asp:Label><br />
                             <strong>&nbsp;&nbsp;Apellido Paterno:</strong>
